@@ -43,6 +43,12 @@ n4m3nl0s_Menu_Stamina =
 	};
 };
 
+n4m3nl0s_Menu_Savegame =
+{
+	hint "Du hast das Spiel gespeichert!";
+	saveGame;
+};
+
 n4m3nl0s_Menu_Arsenal =
 {
 	hint "Du hast das Arsenal geöfffnet!";
@@ -55,6 +61,7 @@ n4m3nl0s_Menu_Heal =
 	player setDamage 0;
 	vehicle player setDamage 0;
 	vehicle player setFuel 1;
+	cursortarget setDamage 0;
 };
 
 n4m3nl0s_Menu_n4m3nl0sinfi_Ammo =
@@ -155,15 +162,16 @@ n4m3nl0s_Main_Menu =
 {
 	n4m3nl0s_main_menu_player = player;
 	removeAllActions player;
-	n4m3nl0s_main_menu_player addAction ["<t color=""#a12525"">[Admin]</t> Teleport", "[]spawn n4m3nl0s_Menu_Tele"];
+	n4m3nl0s_main_menu_player addAction ["<t color=""#a12525"">[Admin]</t> Menü schließen", "[]spawn n4m3nl0s_Hide_Menu"];
 	n4m3nl0s_main_menu_player addAction ["<t color=""#a12525"">[Admin]</t> Heal", "[]spawn n4m3nl0s_Menu_Heal"];
+	n4m3nl0s_main_menu_player addAction ["<t color=""#a12525"">[Admin]</t> Godmode", "[]spawn n4m3nl0s_Menu_God"];
 	n4m3nl0s_main_menu_player addAction ["<t color=""#a12525"">[Admin]</t> Stamina", "[]spawn n4m3nl0s_Menu_Stamina"];
 	n4m3nl0s_main_menu_player addAction ["<t color=""#a12525"">[Admin]</t> Recoil", "[]spawn n4m3nl0s_Menu_Recoil"];
-	n4m3nl0s_main_menu_player addAction ["<t color=""#a12525"">[Admin]</t> Arsenal", "[]spawn n4m3nl0s_Menu_Arsenal"];
-	n4m3nl0s_main_menu_player addAction ["<t color=""#a12525"">[Admin]</t> Godmode", "[]spawn n4m3nl0s_Menu_God"];
 	n4m3nl0s_main_menu_player addAction ["<t color=""#a12525"">[Admin]</t> Infinite Ammo", "[]spawn n4m3nl0s_Menu_n4m3nl0sinfi_Ammo"];
+	n4m3nl0s_main_menu_player addAction ["<t color=""#a12525"">[Admin]</t> Arsenal", "[]spawn n4m3nl0s_Menu_Arsenal"];
+	n4m3nl0s_main_menu_player addAction ["<t color=""#a12525"">[Admin]</t> Save Game", "[]spawn n4m3nl0s_Menu_Savegame"];
 	n4m3nl0s_main_menu_player addAction ["<t color=""#a12525"">[Admin]</t> ESP", "[]spawn n4m3nl0s_Menu_ESP"];
-	n4m3nl0s_main_menu_player addAction ["<t color=""#a12525"">[Admin]</t> Menü schließen", "[]spawn n4m3nl0s_Hide_Menu"];
+	n4m3nl0s_main_menu_player addAction ["<t color=""#a12525"">[Admin]</t> Teleport", "[]spawn n4m3nl0s_Menu_Tele"];
 };
 
 if (!isServer && (player != player)) then 
